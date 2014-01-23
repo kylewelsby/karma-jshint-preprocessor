@@ -11,7 +11,7 @@
       if(!jshint(content)) {
         errors = jshint.data().errors;
         for(i=0;i<errors.length;i++){
-          log.info(
+          log.error(
             file.originalPath +
             ': line ' +
             errors[i].line +
