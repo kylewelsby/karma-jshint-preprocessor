@@ -1,6 +1,6 @@
 {
   "name": "karma-jshint-preprocessor",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Karma plugin.  Check Syntax of JavaScript using JSHint.",
   "main": "index.js",
   "scripts": {
