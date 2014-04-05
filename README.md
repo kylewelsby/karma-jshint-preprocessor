@@ -1,6 +1,11 @@
 # karma-jshint-preprocessor
+[![Code Climate](https://codeclimate.com/github/kylewelsby/karma-jshint-preprocessor.png)](https://codeclimate.com/github/kylewelsby/karma-jshint-preprocessor)
+[![Dependency Status](https://david-dm.org/kylewelsby/karma-jshint-preprocessor.png)](https://david-dm.org/kylewelsby/karma-jshint-preprocessor)
 
-> Preprocessor to check JavaScript syntax on the fly.
+> Preprocessor / Plugin for Karma to check JavaScript syntax on the fly.
+
+[![NPM Package Stats](https://nodei.co/npm/karma-jshint-preprocessor.png)](https://www.npmjs.org/package/karma-jshint-preprocessor)
+
 
 ## Installation
 
@@ -22,9 +27,37 @@ You can simply do it by:
 npm install karma-jshint-preprocessor --save-dev
 ```
 
+## Usage
+
+In your `karma.conf.js` file, specify the files you want to have lint'ed in the preprocessor section like this.
+
+```javascript
+...
+preprocessors: {
+  '*.js': ['jshint']
+}
+...
+```
+
+JSHint configuration is read from a JSON formatted `.jshintrc` file within your project
+
+##### Example `.jshintrc` file.
+
+```json
+{
+    "undef": true,
+    "globals": {
+        "angular": true
+    }
+}
+```
+
+View the full list of [JSHint options][jshint options].
+
 ----
 
-For more information on Karma see the [homepage].
+For more information on Karma see the [karma homepage].
 
 
-[homepage]: http://karma-runner.github.com
+[karma homepage]:http://karma-runner.github.com
+[jshint options]:http://www.jshint.com/docs/options/

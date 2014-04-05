@@ -15,7 +15,7 @@
     "karma-preprocessor",
     "jshint"
   ],
-  "author":{
+  "author": {
     "name": "Kyle Welsby",
     "email": "kyle@mekyle.com"
   },
@@ -23,7 +23,8 @@
     "MIT"
   ],
   "dependencies": {
-    "jshint": "~2.4.2"
+    "jshint": "~2.5.0",
+    "rcloader": "^0.1.2"
   },
   "peerDependencies": {
     "karma": ">=0.9"
