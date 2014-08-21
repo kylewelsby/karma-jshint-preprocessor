@@ -1,12 +1,13 @@
 (function (){
   'use strict';
-  var JSHintReporter = function(loggerFactory) {
-    var jshint, jshintcli, log, RcLoader, rcLoader;
+  var JSHintReporter = function(loggerFactory, jshintPreprocessorConfig) {
+    var jshint, jshintcli, pathToJshintrc, log, RcLoader, rcLoader;
 
     RcLoader = require('rcloader');
     jshint = require('jshint').JSHINT;
     jshintcli = require('jshint/src/cli');
-    rcLoader = new RcLoader('.jshintrc', null, {
+    pathToJshintrc = jshintPreprocessorConfig && jshintPreprocessorConfig.jshintrc;
+    rcLoader = new RcLoader('.jshintrc', pathToJshintrc || null, {
       loader: function (path) {
         var cfg = jshintcli.loadConfig(path);
         delete cfg.dirname;
@@ -55,7 +56,7 @@
 
   };
 
-  JSHintReporter.$inject = ['logger'];
+  JSHintReporter.$inject = ['logger', 'config.jshintPreprocessor'];
 
   module.exports = {
     'preprocessor:jshint': ['factory', JSHintReporter]
