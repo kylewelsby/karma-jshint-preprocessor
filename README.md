@@ -39,6 +39,9 @@ preprocessors: {
 ...
 ```
 
+
+#### Optional jshintrc
+
 Read an optional `jshintrc` property from the karma config to force a `.jshintrc` file to be used by jshint.
 
 ```javascript
@@ -56,6 +59,24 @@ module.exports = function (config) {
 *Thanks to [Kl0tl](https://github.com/Kl0tl) for adding jshintrc path support.*
 
 JSHint configuration is read from a JSON formatted `.jshintrc` file within your project
+
+
+#### Cancel build
+
+Cancel the current build if a linting error has occurred. This can be useful on
+CI servers.
+
+```javascript
+module.exports = function (config) {
+  config.set({
+    // ...
+    jshintPreprocessor: {
+      stopOnError: true
+    },
+    // ...
+  });
+};
+```
 
 ##### Example `.jshintrc` file.
 
