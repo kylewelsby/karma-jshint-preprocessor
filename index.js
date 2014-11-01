@@ -1,12 +1,14 @@
 (function (){
   'use strict';
   var JSHintReporter = function(loggerFactory, jshintPreprocessorConfig) {
-    var jshint, jshintcli, pathToJshintrc, log, RcLoader, rcLoader;
+    var jshint, jshintcli, pathToJshintrc, log, RcLoader, rcLoader, customDone,
+      stopOnError;
 
     RcLoader = require('rcloader');
     jshint = require('jshint').JSHINT;
     jshintcli = require('jshint/src/cli');
     pathToJshintrc = jshintPreprocessorConfig && jshintPreprocessorConfig.jshintrc;
+    stopOnError = jshintPreprocessorConfig && jshintPreprocessorConfig.stopOnError;
     rcLoader = new RcLoader('.jshintrc', pathToJshintrc || null, {
       loader: function (path) {
         var cfg = jshintcli.loadConfig(path);
@@ -14,6 +16,13 @@
         return cfg;
       }
     });
+    customDone = function (done, content, errors) {
+      if (stopOnError && errors) {
+        done(errors);
+      } else {
+        done(null, content);
+      }
+    };
     log = loggerFactory.create('preprocessor.jshint');
 
 
@@ -22,7 +31,7 @@
       log.debug('Processing "%s".', file.originalPath);
       rcLoader.for(file.path, function (err,cfg) {
         if(err) {
-          return done(content);
+          return customDone(done, content, true);
         }
         var globals, success;
 
@@ -48,10 +57,8 @@
           }
         }
 
+        return customDone(done, content, errors);
       });
-
-
-      return done(content);
     };
 
   };
