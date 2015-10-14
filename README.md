@@ -1,6 +1,7 @@
 # karma-jshint-preprocessor
 [![Code Climate](https://codeclimate.com/github/kylewelsby/karma-jshint-preprocessor.png)](https://codeclimate.com/github/kylewelsby/karma-jshint-preprocessor)
 [![Dependency Status](https://david-dm.org/kylewelsby/karma-jshint-preprocessor.png)](https://david-dm.org/kylewelsby/karma-jshint-preprocessor)
+[![Build Status](https://travis-ci.org/kylewelsby/karma-jshint-preprocessor.svg)](https://travis-ci.org/kylewelsby/karma-jshint-preprocessor)
 
 > Preprocessor / Plugin for Karma to check JavaScript syntax on the fly.
 

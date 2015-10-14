@@ -23,7 +23,7 @@
     "MIT"
   ],
   "dependencies": {
-    "jshint": "~2.5.0",
+    "jshint": "~2.8.0",
     "rcloader": "^0.1.4"
   },
   "peerDependencies": {
