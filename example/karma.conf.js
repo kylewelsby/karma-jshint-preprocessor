@@ -12,6 +12,10 @@ module.exports = function(config) {
     ],
     preprocessors: {
       '*.js': ['jshint']
+    },
+    jshintPreprocessor: {
+      jshintrc: './.jshintrc',
+      stopOnError: true
     }
   });
 };

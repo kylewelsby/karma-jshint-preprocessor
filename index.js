@@ -9,7 +9,7 @@
     jshintcli = require('jshint/src/cli');
     pathToJshintrc = jshintPreprocessorConfig && jshintPreprocessorConfig.jshintrc;
     stopOnError = jshintPreprocessorConfig && jshintPreprocessorConfig.stopOnError;
-    rcLoader = new RcLoader('.jshintrc', pathToJshintrc || null, {
+    rcLoader = new RcLoader(pathToJshintrc || '.jshintrc', null, {
       loader: function (path) {
         var cfg = jshintcli.loadConfig(path);
         delete cfg.dirname;
